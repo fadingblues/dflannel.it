@@ -1,6 +1,22 @@
 language: ruby
+cache: bundler
 rvm:
-  - 2.1
-install: gem install jekyll -v 2.4.0 && gem install s3_website
-script: jekyll build
-after_success: s3_website push
+- 2.2.2
+branches:
+  only:
+  - master
+script:
+- bundle exec jekyll build
+deploy:
+  provider: s3
+  bucket: dflannel.it
+  skip_cleanup: true
+  region: Frankfurt
+  local_dir: _site
+  on:
+    branch: master
+  dot_match: true
+  access_key_id:
+    secure: Fl2N+m0XAB/WQKs7pMvOEk+1huA/lbh/uWhiqB1345nve6Yhq1z3YIEXArY/SwvRjSwz/wRkX8m9KeMoX30SOX2u9W10tro58m+bS3xF0ju9Ln5Bbl5xYvvT6T8dVH87SwuaaMpFxteP0hMTSr9kb+DyWNUTXNhK9Bt9HSDOYhn0y6msLC/ehE7/JsA+vgqFlJosRiJx5Zj3gLi+Pmjpr/LwXrI4LYP0ZCFAtwQ3Kdpju/X41ZQxTwcfi9RKrjx+L77V0IcGTOO6RdN/m7WlnPxpOZOEUezt+MKv0zKIgPGON+6pY3OGDNP0JZtKoDIBRvRgponF/0zSRMX03QHVr7y/ty9I1P1MFT89igW0Cb2kt5KQkdfqxErxzSkmXN03BO2BbMOMKQlNPh243XpV/47bP329v93tyLeQu1Pmq/L4moF3UnOCT2tB1DMVuWoF0VN8tS7io3ZTGF2ATTpJoFE/Yju19HWb2kE6FrmIhfrxELTGBt/zfMcPkvEN3rgT/STRy2Bi1ok1Mc0BQtvAND0nb44wiDjr+XWsnwzF7gL1dGR2i+bRrkmFqaf5sz+wFmSZ81qU0aqAWdK83+s7Mu4joNSrSEe0cOVsmPOzIoyt6wBv7ujvAc4sTILOOrXu9J4G2e4edCNUj8ws5kw4zILtuVzk1C1ELfTbr3Wzu5Q=
+  secret_access_key:
+    secure: JOU+dKBkXQBDCOcPZhEW1joxNWZejq3zWn2sriWP08j1Zpq1HPcdYDE9cRaYjbjz1eIyFkIbbv/rtSSbAr8f/f9Q+4SMKzv0WOZnWv7Gm3qt+RL4s1IaO+lAYD2dZSkBXBEHCpXff1N/Ni7ykH6c4UzWlDtKA8jd0ingwOSvRLEvdkMKuOC1I29C6WfSDVluY9V1hdpDNHnscU/XAPfE3VYRwIQERA9lZagKnaQ/IZWFxJr7/R7l8qfL1vIReR5rLEMAy1ppGCRQg9oPqtIs7/509JD8mr76w/0yWUUpqmczW/8Fm4/SuTVogFNIk3MMKTxtaA+5o6xJggjXL8kdLpZQ32VYcdAzrANjo4YyCdZhme8/bTILc3qFZLrXdToIXilmUzCCtwkGyOpidIwr/wrP70aJHFt/ROw9YkVzJVONu9SsFpI05YaaMZrgwFv49F87o+2it5kYmps/jI6hq/1JBX7/GLnz0dOUxo/hFjIY2bOHZytQWQpOJEl/DXVobXH3vzKUgt5bnV9cX96sbBblKl/o5ehyw5lJI7AAWPkJ4HM+me4r9Qf2IpEnZJZrUIslxhXjhyGR4A30HA5hXo68n7r/e148y8lbNRBRmMSa0HjkrE4wgvXy9QQMsTijk/KzYxNd1KePz2wVYk5kYm4fH6Gy4hSHeHQfk0yTztQ=
