@@ -3,15 +3,16 @@ rvm:
 - 2.1
 install: gem install jekyll -v 2.4.0
 script: jekyll build
-deploy:
-  provider: s3
-  access_key_id: $S3_ACCESS_KEY_ID
-  secret_access_key: $S3_SECRET_KEY
-  bucket: dflannel.it
-  endpoint: dflannel.it.s3-website.eu-central-1.amazonaws.com
-  region: Frankfurt
-  skip_cleanup: true
-  local_dir: _site
 notifications:
   email:
     on_failure: always
+deploy:
+  provider: s3
+  access_key_id: AKIAIM7SJP44STXLFYYA
+  secret_access_key:
+    secure: VY60VmAyP79Wku957+PMlhaWwyiw1UttcUPt5VPMxO6hoVF4ZseQ5eRY6k3qarw8lETw0XEV+sytwICnh5AWJfAHQovaH28CTxB9ApRk6be1BqjRDvmDtszO3D1sgixTqzet7tg1iADHEmGj4QZ9A5iwRMZGGRopzNve1jqioPZAiVb5o9iBK+9ONE+XTp6Hrx2fwH4RkvgCOlAZLZCl4lZgQaGNcrMpNT2BUcQhlh3tdz1W5zlKmQcUYoqG6M3OaG5Ml2hEg8ebfk1cqtwnyuTL5gTGIYJnDxLultspe3aiUOO46je0oUiHiOUNxwfj+3J0b18SwZFV7Mt6wn6M4I+dHpe+xdjc9zuoLUcsfzLs4rX49tpzFoK2rN22fCvAWGV6NNmCTl1trdzU01VtfkWVhse7Grb96WGnFZCcmnIQmB21IeFg/FAeskm/O0cNoIsGr25laVy+YXqISL93vUiu7XLO6BTrb2JCwNa6pqBXBhD6W9LsWiuYTcK9YgACam+PVEmll6STtrvtbms7h1X7UKadL0DTdXMVQTbNTg9JxnOeoOKcpX4GbMQso4KE0gPhpTAlaNIiAOCjkktW0OqSl14NkG5WvV2VRqNuIBbWq1mmA3iBfuBMS3OcQAtIR3MSbOR0yf7h61MscmO1ZZ6Rr44IlAYH1qVDgVruefM=
+  bucket: dflannel.it
+  local-dir: _site
+  acl: public_read
+  on:
+    repo: fadingblues/dflannel.it
