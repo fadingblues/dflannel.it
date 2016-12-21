@@ -1,6 +1,8 @@
 source "https://rubygems.org"
 
-gem 'jekyll', '>=3.0'
+gem 'jekyll'
+gem 'jekyll-paginate'
+gem 'jekyll-gist'
 gem 'nokogiri'
 gem 's3_website'
 gem 'therubyracer'
