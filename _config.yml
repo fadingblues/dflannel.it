@@ -29,5 +29,3 @@ github:
 
 include:
   - .well-known
-
-theme: jekyll-theme-cayman
