@@ -3,10 +3,6 @@ rvm:
 - 2.1
 install: gem install jekyll -v 2.4.0
 script: jekyll build
-
-notifications:
-  email:
-    on_failure: always
 deploy:
   provider: s3
   access_key_id: AKIAIM7SJP44STXLFYYA
@@ -14,6 +10,10 @@ deploy:
     secure: vfvqZwwh3t+8TxKlRXgXimTuUXEs+OMbRwGW1T81dsFeNAoj3v+EjvAZLeNKomIGGz2woW7Em+tZZq9X2eAB2JG/8v38Xn/DF2Wh6bNXK+FUl6t4qP69bdWsrAEQC+eALpq8eOrUO5bGu2UZRkU1yG67Xcqf05Lyf3IegqT0gIkQpGdcIgy2XFjw8MAJto8f8seK/oBwA0Z6I+9iqnmxkEjpun25aLx86kWcNiS2vizJdTwcXAPSIH6H0uwoCRk8LaUzlNUkKFsu4Kj1Hk8T6912y1lZ2slfXk+OunGp6m8/73dt4bDFxe5KGKW3ZxGsrk724TbJjG409ZNpND+bLVuEmDEc7KY6jmxmfN8XTyDIlbHINDXF83b1YZMLTtgMyEFSvoloRvHjRPEcIBYLQW10guQolhef78HVNRFFhw6wvBaqefbNMy968C0aeGtfHLENacuH8clUc+DKTW9zQVAgeXdV0QY2QDzcR6vLhC9SceVJNSL22KsIt1KaDrfJli1eJQVetVMygUxrRQTA2uKxWMfwFg0OxR6OEHOP570bD6VjtdH/Kr+jkQeEyNrKq5QSRTT39sABtPNfHvdRshsRt2xDLbZ/E2A+Z1vCA0riENOcpqND47q+/6+8Kn6mINaMgSwFvDGgk9eziEJ1I3lae3OGQJznB8SQ16om/eU=
   bucket: dflannel.it
   local-dir: _site
+  skip_cleanup: true
   acl: public_read
   on:
     repo: fadingblues/dflannel.it
+notifications:
+  email:
+    on_failure: always
