@@ -2,6 +2,7 @@
 layout: post
 title: "Coming Soon"
 date: 2016-12-22
+comments: true
 categories:
  -
 ---
