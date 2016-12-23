@@ -30,3 +30,7 @@ github:
 
 include:
   - .well-known
+exclude:
+  - jekyll.thor
+  - LICENSE.md
+  - README.md
