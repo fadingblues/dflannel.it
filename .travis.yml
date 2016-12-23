@@ -11,6 +11,7 @@ deploy:
   bucket: dflannel.it
   local-dir: _site
   skip_cleanup: true
+  region: eu-central-1
   acl: public_read
   on:
     repo: fadingblues/dflannel.it
